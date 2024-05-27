@@ -68,7 +68,7 @@ class Prisoner extends Person implements Serializable{
 		return lines;
 	}
 
-	public static void deletePatient(String name) {
+	public static void delete(String name) {
 		ArrayList<Prisoner> temp = readFromFile();
 		for(int i = 0; i < temp.size();i++) {
 			if(temp.get(i).name.equals(name)) {
@@ -91,5 +91,42 @@ class Prisoner extends Person implements Serializable{
 		catch (IOException e) {
 			System.out.println("Error in file writing");
 		}
+	}
+
+
+	public static void update(String name, String changed) {
+		ArrayList<Prisoner> temp = readFromFile();
+		for(int i = 0; i < temp.size();i++) {
+			if(temp.get(i).name.equals(name)) {
+				temp.get(i).name = changed;
+				break;
+			}
+		}
+
+		try {
+			File f = new File("Prisoner.ser");
+			ObjectOutputStream os;
+			
+			os = new ObjectOutputStream(new FileOutputStream(f));
+			for(int i = 0; i < temp.size(); i++) {
+				os.writeObject(temp.get(i));
+			}
+			os.close();
+		}
+
+		catch (IOException e) {
+			System.out.println("Error in file writing");
+		}
+	}
+
+
+	public static Prisoner searchByID(int id) {
+		ArrayList<Prisoner> temp = readFromFile();
+		for(int i = 0; i < temp.size();i++) {
+			if(temp.get(i).ID == id) {
+				return temp.get(i);
+			}
+		}
+		return null;
 	}
 }

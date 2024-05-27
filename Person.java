@@ -1,6 +1,7 @@
 import java.util.IdentityHashMap;
+import java.io.*;
 
-class Person {
+class Person implements Serializable{
 	String name; 
 	int age; 
 	String gender; 
