@@ -3,24 +3,23 @@ import java.util.Arrays;
 import java.io.*;
 class Police extends Person implements Serializable{
     String post; 
-    int salary; 
-    String department; 
+    double salary; 
+    //String department; 
     int weaponNum; 
     String cases; 
 
-    public Police(String name, int age, boolean gender, int ID,  String post, int salary, String department, int weaponNum, String cases) {
+    public Police(String name, int age, String gender, int ID,  String post, double salary, int weaponNum, String cases) {
 		super(name, age, gender, ID);
         this.post = post;
         this.salary = salary;
-        this.department = department;
         this.weaponNum = weaponNum;
         this.cases = cases;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Police [post=" + post + ", salary=" + salary + ", department=" + department + ", weaponNum=" + weaponNum
-                + ", cases=" + cases + "]";
+        return (super.toString() + "\nPost : " + post + "\nsalary : " + salary +  "\nWeaponNum : " + weaponNum
+                + "\nCases : " + cases);
     }
 
     public static void writeFile(Police p) {
@@ -68,10 +67,10 @@ class Police extends Person implements Serializable{
         return lines;
     }
 
-    public static void delete(String name) {
+    public static void delete(int id) {
         ArrayList<Police> temp = readFromFile();
         for(int i = 0; i < temp.size();i++) {
-            if(temp.get(i).name.equals(name)) {
+            if(temp.get(i).ID == id) {
                 temp.remove(i);
                 break;
             }
@@ -94,12 +93,13 @@ class Police extends Person implements Serializable{
     }
 
 
-    public static void update(String name, String changed) {
+    public static void update(int id, String changed, double salary) {
         ArrayList<Police> temp = readFromFile();
         for(int i = 0; i < temp.size();i++) {
-            if(temp.get(i).name.equals(name)) {
-                temp.get(i).name = changed;
-                break;
+            if(temp.get(i).ID == id) {
+                    temp.get(i).post = changed;
+                    temp.get(i).salary = salary;
+                    break;
             }
         }
 

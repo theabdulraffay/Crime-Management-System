@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 class Prisoner extends Person implements Serializable{
 	String crime; 
-	int tenure; 
+	String tenure; 
 	int cellNum; 
-	Prisoner(String name, int age, boolean gender, int ID, String crime, int tenure, int cellNum) {
+	Prisoner(String name, int age, String gender, int ID, String crime, String tenure, int cellNum) {
 		super(name, age, gender, ID);
 		this.crime = crime;
 		this.cellNum = cellNum;
@@ -20,7 +20,7 @@ class Prisoner extends Person implements Serializable{
 
 
 	public String toString() {
-		return super.toString() + " " + crime + " " + tenure + " " + cellNum;
+		return (super.toString() + "\nCrime : " + crime + "\ntenure : " + tenure + "\nCell# : " + cellNum);
 	}
 
 	public static void writeFile(Prisoner p) {
@@ -68,10 +68,10 @@ class Prisoner extends Person implements Serializable{
 		return lines;
 	}
 
-	public static void delete(String name) {
+	public static void delete(int ID) {
 		ArrayList<Prisoner> temp = readFromFile();
 		for(int i = 0; i < temp.size();i++) {
-			if(temp.get(i).name.equals(name)) {
+			if(temp.get(i).ID == ID) {
 				temp.remove(i);
 				break;
 			}
@@ -94,11 +94,11 @@ class Prisoner extends Person implements Serializable{
 	}
 
 
-	public static void update(String name, String changed) {
+	public static void update(int ID, int changed) {
 		ArrayList<Prisoner> temp = readFromFile();
 		for(int i = 0; i < temp.size();i++) {
-			if(temp.get(i).name.equals(name)) {
-				temp.get(i).name = changed;
+			if(temp.get(i).ID == ID) {
+				temp.get(i).cellNum = changed;
 				break;
 			}
 		}
