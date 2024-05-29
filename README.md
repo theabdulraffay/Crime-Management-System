@@ -18,4 +18,4 @@ The Police Station Management System is a Java-based application designed to str
    git clone https://github.com/theabdulraffay/Police-Station-Management-System.git
    ```
 
-- **Connect me at [gmail](abdulraffay2494@mgmail.com)
+- **Connect me at [gmail](abdulraffay2494@mgmail.com)**
