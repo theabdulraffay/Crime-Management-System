@@ -2,7 +2,9 @@ public class runner {
     public static void main(String[] args) {
         //PoliceForm p = new PoliceForm();
         //PrisonerForm p = new PrisonerForm();
-        HomeForm h = new HomeForm();
+        // HomeForm h = new HomeForm();
+                PrisonerIntermediateForm pi = new PrisonerIntermediateForm();
+        
         //PoliceIntermediateForm p = new PoliceIntermediateForm();
         //PrisonerIntermediateForm p = new PrisonerIntermediateForm();
         //PoliceDeleteForm a = new PoliceDeleteForm();
