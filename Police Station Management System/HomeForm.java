@@ -7,7 +7,7 @@ public class HomeForm extends JFrame
 {
     JButton police;
     JButton prisoner;
-    //JButton vehicle;
+    JButton vehicle;
     JButton exit;
 
 
@@ -15,21 +15,21 @@ public class HomeForm extends JFrame
     {
         setSize(600,600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new GridLayout(3,1));
+        setLayout(new GridLayout(4,1));
 
         police = new JButton("Police");
         prisoner = new JButton("Prisoner");
-        //vehicle = new JButton("Vehicle");
+        vehicle = new JButton("Vehicle");
         exit = new JButton("Exit");
 
         MyActionListener listener = new MyActionListener();
         police.addActionListener(listener);
         prisoner.addActionListener(listener);
-        //vehicle.addActionListener(listener);
+        vehicle.addActionListener(listener);
         exit.addActionListener(listener);
         add(police);
         add(prisoner);
-        //add(vehicle);
+        add(vehicle);
         add(exit);
         setVisible(true);
     } 
@@ -46,11 +46,11 @@ public class HomeForm extends JFrame
             {
                 PrisonerIntermediateForm pi = new PrisonerIntermediateForm();
             }
-            // else if(ae.getActionCommand().equals("Vehicle"))
-            // {
-            //     dispose();
-            //     // Home h = new Home();
-            // }
+            else if(ae.getActionCommand().equals("Vehicle"))
+            {
+                dispose();
+                IntermediateFormVehicle h = new IntermediateFormVehicle();
+            }
             else
             {
                 System.exit(0);

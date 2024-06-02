@@ -12,7 +12,7 @@ class Vehicle implements Serializable{
 	}
 
 	public String toString() {
-		return number + " " + type + " " + chasiNum;
+		return ("\nNumber "+number + "\nType " + type + "\nChasi #" + chasiNum);
 	}
 
 	public static void writeFile(Vehicle p) {
@@ -86,7 +86,7 @@ class Vehicle implements Serializable{
 	}
 
 
-	public static Vehicle searchByID(int id) {
+	public static Vehicle searchByChasiNo(int id) {
 		ArrayList<Vehicle> temp = readFromFile();
 		for(int i = 0; i < temp.size();i++) {
 			if(temp.get(i).chasiNum == id) {
